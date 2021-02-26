@@ -17,34 +17,35 @@ var self = module.exports = {
             return arr    
         }
     },
-    writeFile: function (data, category, dir) {
+    writeFile: function (category, word) {
         var directory = "avm"
-        var file = correctFile(category)
+        var file = self.correctFile(category)
 
-        console.log("Writing to training file")
-        var file = "./" + directory + "/" + file + ".txt"
-    
-        //console.log("Writing " + data.toLowerCase() + " to file " + file)
-        data = pluralize.singular(data)
-        fs.appendFileSync(file, "\n" + data.toLowerCase())
+        console.log('writing to file: ' + category)
+        if (file) {
+            console.log("Writing to training file")
+            var writeToFile = "./" + directory + "/" + file + ".txt"
+        
+            console.log(word)
+            fs.appendFileSync(writeToFile, "\n" + pluralize.singular(word.toLowerCase()))
+        }
     },
     correctFile: function(category) {
-        var dir
+        var file
         switch(category[0]) {
             case "a":
-                dir = "animals"
+                file = "animals"
                 break
             case "v":
-                dir = "vegetables"
+                file = "vegetables"
                 break
             case "m": 
-                dir = "minerals"
+                file = "minerals"
                 break
             default:
-                dir = "unknown"
         }
     
-        return dir
+        return file
         //console.log("Corrected file = " + file)
         //self.writeFile(file, data, dir)
     }

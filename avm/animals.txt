@@ -518,3 +518,8 @@ lamprey
 wolf
 cow
 cow
+new
+new
+new
+new
+horse

@@ -26,11 +26,31 @@ const server = http.createServer((req, res) => {
     var querystring = qs.parse(tmpURL)
 
     if (querystring.word && querystring.category) {
+      var word = pluralize.singular(querystring.word.toLowerCase())
+      var cat = querystring.category.toLowerCase()
 
-      console.log(querystring.word)
-      console.log(querystring.category)
-    }
+      switch (cat[0]) {
+        case "a":
+          func.writeFile("animal", word)
+          console.log("animal")
+          // log to animals file
+          break
+        case "v":
+          func.writeFile("vegetable", word)
+          console.log("vegetable")
+          // log to vegetables file
+          break
+        case "m":
+          func.writeFile("mineral", word)
+          console.log("mineral")
+          // log to minerals file
+          break
+
+          // discard incorrect categories
+      }
+
   }
+}
   // func.writeFile(result1.category, userInput, dir)
 
   var output = "Hello world."
