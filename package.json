@@ -1,0 +1,20 @@
+{
+  "name": "iv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "poc.js",
+  "scripts": {
+    "start": "node poc.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dclassify": "^1.1.2",
+    "fs": "0.0.1-security",
+    "fuzzball": "^1.3.1",
+    "http": "0.0.1-security",
+    "pluralize": "^8.0.0",
+    "prompt-sync": "^4.2.0"
+  }
+}

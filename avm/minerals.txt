@@ -1,0 +1,578 @@
+gold
+gold
+calcium
+talc
+sand
+steel
+iron
+argon
+actinolite
+nephrite
+adamite
+aegerine
+afghanite
+agrellite
+alunite
+amblygonite
+analcime
+anatase
+andalusite
+chiastolite
+andesine
+anglesite
+anhydrite
+annabergite
+antigorite
+bowenite
+apatite
+apophyllite
+aragonite
+arfvedsonite
+astrophyllite
+atacamite
+austinite
+axinite group:
+ferroaxinite
+magnesioaxinite
+manganaxinite
+tinzenite
+azurmalachite
+azurite
+baryte
+bastnaesite
+bayldonite
+benitoite
+beryl subgroup:
+aquamarine
+emerald
+goshenite
+golden beryl
+heliodor
+morganite
+red beryl
+beryllonite
+beudantite
+biotite
+boleite
+boracite
+bornite
+brazilianite
+brookite
+brucite
+bustamite
+bytownite
+calcite
+manganocalcite
+caledonite
+cancrinite
+vishnevite
+carletonite
+carnallite
+carnelian
+cassiterite
+cavansite
+celestite (celestine)
+cerussite
+chabazite
+chalcopyrite
+chambersite
+charlesite
+charoite
+childrenite
+chondrodite
+chrysoberyl
+alexandrite
+cymophane
+chromite
+chrysocolla
+chrysotile
+cinnabar
+clinochlore
+clinohumite
+clinozoisite
+clintonite
+cordierite
+iolite
+cornwallite
+corundum
+ruby
+sapphire
+padparadscha
+covellite
+creedite
+cryolite
+cuprite
+danburite
+datolite
+descloizite
+diamond
+bort
+diaspore
+diopside
+dioptase
+dolomite
+dumortierite
+elbaite
+emerald
+trapiche emerald
+enstatite
+bronzite
+hypersthene
+eosphorite
+epidote
+piemontite
+erythrite
+esperite
+ettringite
+euclase
+eudialyte
+fayalite
+ferroaxinite
+feldspar subgroup:
+andesine
+albite
+anorthite
+anorthoclase
+amazonite
+bytownite
+celsian
+labradorite
+microcline
+moonstone
+adularia
+rainbow
+orthoclase
+sanidine
+sunstone
+fluorapatite
+fluorapophyllite
+fluorite
+forsterite
+gahnite
+garnet
+pyralspite
+almandine
+pyrope
+spessartine
+ugrandite
+andradite
+demantoid
+melanite
+topazolite
+grossular
+hessonite
+hydrogrossular
+tsavorite
+uvarovite
+almandine-pyrope
+rhodolite
+andradite-grossular
+grandite (mali garnet)
+pyrope-almandine-spessartine
+malaia garnet
+pyrope-spessartine
+umbalite
+gaspeite
+gaylussite
+gibbsite
+glaucophane
+goethite
+goosecreekite
+grandidierite
+gypsum
+gyrolite
+halite
+hambergite
+hanksite
+hardystonite
+hauyne
+hematite
+hemimorphite
+herderite
+hexagonite
+hibonite
+hiddenite
+hodgkinsonite
+howlite
+humite
+iolite
+jade
+jadeite
+chloromelanite
+nephrite
+jasper
+jeremejevite
+kainite
+kornerupine
+kutnohorite
+kurnakovite
+kyanite
+langbeinite
+lawsonite
+lazurite
+legrandite
+lepidolite
+leucite
+leucophanite
+linarite
+lizardite
+londonite
+ludlamite
+magnesite
+malachite
+marialite-meionite
+wernerite
+mimetite
+moissanite
+mottramite
+muscovite
+fuchsite
+musgravite
+narsarsukite
+natrolite
+nepheline
+neptunite
+nickeline
+nuummite
+olivine
+opal
+painite
+papagoite
+pargasite
+pectolite
+larimar
+peridot
+periclase
+petalite  (castorite)
+pezzottaite
+phenakite
+phlogopite
+phosgenite
+phosphophyllite
+phosphosiderite
+piemontite
+pietersite
+plumbogummite
+pollucite
+polyhalite
+poudretteite
+prehnite
+prismatine
+proustite
+pumpellyite
+chlorastrolite
+purpurite
+pyrite
+pyrargyrite
+pyromorphite
+pyrrhotite
+quartz
+amethyst
+ametrine
+chalcedony
+agate
+iris agate
+onyx
+sardonyx
+bloodstone (heliotrope)
+carnelian
+chrome chalcedony
+chrysoprase
+dendritic agate
+moss agate
+fire agate (iridescent var.)
+jasper
+petrified wood
+sard
+citrine
+druzy
+flint
+milky quartz
+prasiolite
+radiolarite
+rose quartz
+rock crystal
+rock
+stone
+dirt
+gravel
+smoky quartz
+rhodizite
+rhodochrosite
+richterite
+riebeckite
+crocidolite
+rosasite
+rutile
+scapolite
+scheelite
+schizolite
+scolecite
+scorodite
+selenite
+sellaite
+senarmontite
+sérandite
+seraphinite
+serendibite
+serpentine subgroup
+antigorite
+bowenite
+chrysotile
+lizardite
+stichtite
+shattuckite
+shigaite
+shortite
+shungite
+siderite
+sillimanite
+sinhalite
+smithsonite
+sodalite
+hackmanite
+sperrylite
+spessartite
+spinel
+ceylonite
+spodumene
+hiddenite
+kunzite
+triphane
+stichtite
+staurolite
+sulfur
+stolzite
+sugilite
+bustamite
+richterite
+sylvite
+taaffeite
+tantalite
+thomsonite
+thaumasite
+tinaksite
+titanite (sphene)
+topaz
+tourmaline
+achroite
+chrome
+dravite
+elbaite
+fluor-liddicoatite
+indicolite
+olenite
+paraiba
+rossmanite
+rubellite
+tremolite
+hexagonite
+tugtupite
+turquoise
+vanadinite
+variscite
+väyrynenite
+vesuvianite
+idocrase
+californite
+villiaumite
+vlasovite
+wavellite
+weloganite
+willemite
+wulfenite
+xonotlite
+zektzerite
+zeolites
+analcite
+apophyllite
+chabazite
+goosecreekite
+natrolite
+stellerite
+thomsonite
+zincite
+zinnwaldite
+zircon
+jacinth
+zoisite
+tanzanite
+thulite
+lab alexandrite
+lab corundum
+zirconia
+cubic zirconia
+diamond
+lab diamond
+lab emerald
+fordite
+lab moissanite
+synthetic opal
+metal-coated crystals hyped as 
+rainbow quartz
+lab spinel
+synthetic turquoise
+trinitite
+yttrium aluminium garnet
+amber
+ammolite
+bone
+copal
+coral
+jet
+nacre
+mother of pearl
+operculum
+pearl
+rock
+gem
+gemstone
+anyolite
+bauxite
+bloodstone
+eilat stone
+epidosite
+hawk's eye
+helenite
+glass
+ash
+iddingsite
+llanite
+lapis lazuli
+libyan desert glass
+maw sit sit
+moldavite
+obsidian
+apache tears
+pallasite
+peridotite
+olivinite
+soapstone
+steatite
+tactite
+tiger's eye
+tiger eye
+unakite
+chatoyant
+minerals
+gemstones
+cat's eye
+cat eye
+andalusite
+aquamarine
+apatite
+beryl
+beryllium
+calcite
+chrysoberyl
+danburite
+diaspore
+enstatite
+emerald
+grandidierite
+hawk's eye
+heliodor
+hypersthene
+iolite
+kornerupine
+kunzite
+kyanite
+moonstone
+morganite
+opal
+peridot
+peristerite
+albite
+pezzottaite
+phenakite
+prasiolite
+quartz
+rhodonite
+selenite
+sunstone
+serpentine
+antigorite
+bowenite
+smoky quartz
+tanzanite
+tiger's eye
+tourmaline
+ulexite
+zircon
+diamond
+ruby
+emerald
+blue sapphire
+sapphire
+alexandrite
+natural marine pearls
+pearl
+pink sapphire
+demantoid
+tsavorite
+spinel
+precious black opal
+tanzanite
+sapphires
+aquamarine
+orange topaz
+topaz
+elbaite
+precious white and fire opal
+tourmaline
+tormaline
+verdelite
+indicolite
+polychromous
+beryl
+heliodor
+yellow topaz
+blue topaz
+pink topaz
+peridot
+garnets
+spessartine
+malaya
+rhodolite
+almandine
+pyrope
+amethyst
+citrine
+blue turquoise
+lazurite
+jadeite
+nephrite
+malachite
+amber
+chrysoprase
+charoite
+agate
+amazonite
+rhodonite
+quartz
+hematite
+opal
+iridescent 
+feldspars
+jasper
+graphic granite
+petrified wood
+cacholong
+marble
+onyx
+marble onyx
+obsidian
+listwanite
+mica
+jet
+selenite
+fluorite
+serpentinite
+aventurine 
+quartzite
+ophicalcite
+serpentine
+calcite
+pagodite
+pyrophyllite
+talc
