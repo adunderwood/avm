@@ -4,94 +4,9 @@
     <head>
         <title>Animal, Vegetable, Mineral</title>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script>
-        function avm() {
-            // Don't do this. As I was writing this, I realized that I don't know how to do 
-            // AJAX without doing it the really, really old way. I'm a designer not a coder.
-            // Do this the best way possible in your framework. Also maybe put in some security...
-            // I used to hate it when my text books would say that, but now I totally get it.
-            // The PHP file just returns JSON. Having had to do a bridge function in PHP, I probably
-            // would have just written the whole thing in PHP but I didn't. It's in Node with a weird
-            // PHP bridge to JSON because... God I'm old.
-
-            // Anyway it's fine for the sake of the example so if you want to just install this code
-            // and run it, it will actually work (something my textbooks didn't offer at the time).
-
-            var val = document.getElementById("query").value
-            console.log('Testing: ' + val)
-
-            $("#train").hide()
-            $("#train-result").hide()
-            $("#correct").hide()
-
-            if (val) {
-                // send to server
-                $.ajax({
-                    type: 'GET',
-                    dataType: 'json',
-                    url: 'http://104.248.71.117/iv/avm.php?q=' + val,
-                    data: val,
-                    success: function (result) {
-                        var res = result.result
-                        document.getElementById("result").innerHTML = res
-                        console.log(res)
-
-                        $("#train").show()
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status)
-                        console.log(thrownError)
-                    }
-                })
-            }
-
-            return false // don't submit that form
-        }
-
-        function correct() {
-            var frm = document.forms["correction"]
-            var avm = frm.avm.value
-
-            if (avm) {
-                avm = avm.toLowerCase();
-
-                switch(avm) {
-                    case "animal":
-                        alert("Animal!")
-                        break
-                    case "vegetable": 
-                        alert("Vegetable!")
-
-                        break
-                    case "mineral":
-                        alert("Mineral!")
-
-                        break
-                }
-
-                // Show completion message
-                $("#correct").hide()
-                $("#train").hide()
-                $("#train-result").show()
-            }
-
-            return false // don't submit this form either
-        }
-
-        function trainNo() {
-            $("#correct").show()
-            $("#train").hide()
-        }
-
-        function trainYes() {
-            $("#train").hide()
-            $("#train-result").show()
-        }
-
-        </script>
-
+        
         <style>
-            #train, #correct, #train-result {
+            #train, #correct, #train-result, #train-error {
                 display: none;
             }
         </style>
@@ -101,11 +16,11 @@
 
         <h1>Animal, Vegetable, Mineral?</h1>
 
-        <form method="get" action="" onsubmit="return avm()">
+        <form id="start" onsubmit=" return avm()">
             <p>
                 <label for="q">Enter a word</label>
                 <input id="query" name="q" type="text">
-                <input type="submit">
+                <input type="button" name="btn-submit" value="Go!" onclick="return avm()">
             </p>        
         </form>
 
@@ -138,5 +53,158 @@
         <div id="train-result">
             <h3>Training Data Received!</h3>
         </div>
+
+        <div id="train-error">
+            <h3>Training data error =(</h3>
+        </div>
+
+
+
+
+
+
+    <script>
+    
+        $(document).ready(function() {
+            console.log("Document ready.")
+            $("#query").focus()
+        })
+
+        $(document).on("click",".btn-submit", function() {
+            avm()
+        })
+
+        function avm() {
+            // Don't do this. As I was writing this, I realized that I don't know how to do 
+            // AJAX without doing it the really, really old way. I'm a designer not a coder.
+            // Do this the best way possible in your framework. Also maybe put in some security...
+            // I used to hate it when my text books would say that, but now I totally get it.
+            // The PHP file just returns JSON. Having had to do a bridge function in PHP, I probably
+            // would have just written the whole thing in PHP but I didn't. It's in Node with a weird
+            // PHP bridge to JSON because... God I'm old.
+
+            // Anyway it's fine for the sake of the example so if you want to just install this code
+            // and run it, it will actually work (something my textbooks didn't offer at the time).
+
+            var val = document.getElementById("query").value
+
+            if (val) {
+                // send to server
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'json',
+                    url: 'http://104.248.71.117/avm/avm.php?q=' + val,
+                    data: val,
+                    success: function (result) {
+                        var res = result.result
+                        document.getElementById("result").innerHTML = res
+                        console.log(res)
+
+                        $("#train").hide()
+                        $("#train-result").hide()
+                        $("#correct").hide()
+
+                        if (res.toLowerCase() != "unknown") {
+                            $("#train").show()
+                        } else {
+                            $("#correct").show()
+                        }
+
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status)
+                        console.log(thrownError)
+                    }
+                })
+            }
+
+            return false // don't submit that form
+        }
+
+        function correct() {
+            var frm = document.forms["correction"]
+            var avm = frm.avm.value
+            var word = document.getElementById("query").value
+            
+            if (avm) {
+                trainSave(word, avm)
+            }
+
+            return false // don't submit this form either
+        }
+
+        function trainNo() {
+            $("#correct").show()
+            $("#train").hide()
+        }
+
+        function trainYes() {
+            var avm = $("#result").text().toLowerCase()
+            console.log(avm)
+            var word = document.getElementById("query").value
+
+            trainSave(word,avm)
+
+            $("#train-result").show()
+            $("#start").hide()
+            $("#train").hide()
+
+            setTimeout(function() {
+                window.location = "/avm"
+            }, 500)
+        }
+
+        function trainSave(word, category) {
+            avm = category.toLowerCase();
+
+            var runAjax = false
+            switch(avm) {
+                case "animal":
+                    runAjax = true
+                    break
+                case "vegetable": 
+                    runAjax = true
+                    break
+                case "mineral":
+                    runAjax = true
+                    break
+            }
+
+            var postURL = 'http://104.248.71.117/avm/train.php?word=' + word + '&category=' + avm
+
+            var data = []
+            data["word"] =  word
+            data["category"] = avm
+
+            if (runAjax) {
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'json',
+                    url: postURL,
+                    data: data,
+                    success: function (result) {
+                        var res = result.result
+
+                        // Show completion message
+                        $(".result").hide()
+                        $("#correct").hide()
+                        $("#train").hide()
+                        $("#train-result").show()
+
+                        setTimeout(function() {
+                            window.location = "/avm"
+                        }, 500)
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $("#train-error").show()
+
+                        console.log(xhr.status)
+                        console.log(thrownError)
+                    }
+                })
+                
+            }
+        }
+        </script>
     </body>
 </html>
