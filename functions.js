@@ -5,16 +5,22 @@ var self = module.exports = {
 
     sentenceCase: function(word) {
         return word.charAt(0).toUpperCase() + word.slice(1)
-    },    
+    },
     readFile: function(file) {
         if (file) {
             var arr
-            arr = fs.readFileSync(file).toString().split("\n");
-                for(i in arr) {
-                    tmp = arr[i] 
-                    arr[i] = tmp.replace("\r","")
+            arr = fs.readFileSync(file).toString().split("\n")
+
+            var filtered = []
+            for (i in arr) {
+                tmp = arr[i]
+
+                if(arr[i] != "") {
+                  arr[i] = tmp.replace("\r","")
+                  filtered.push(arr[i])
                 }
-            return arr    
+            }
+            return filtered
         }
     },
     writeFile: function (category, word) {
@@ -23,11 +29,13 @@ var self = module.exports = {
 
         console.log('writing to file: ' + category)
         if (file) {
+          if (word != "") {
             console.log("Writing to training file")
             var writeToFile = "./" + directory + "/" + file + ".txt"
-        
+
             console.log(word)
-            fs.appendFileSync(writeToFile, "\n" + pluralize.singular(word.toLowerCase()))
+            fs.appendFileSync(writeToFile, pluralize.singular(word.toLowerCase()))
+          }
         }
     },
     correctFile: function(category) {

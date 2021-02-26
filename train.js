@@ -7,6 +7,11 @@ var func = require('./functions.js')
 
 // var userInput, userTraining
 var dir = "./avm/"
+var output = "Hello world"
+
+var allowedIPs = []
+allowedIPs["server"] = "104.248.71.117"
+allowedIPs["home"] = "69.138.219.145"
 
 const hostname = '104.248.71.117'
 const port = 3001
@@ -15,45 +20,57 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
 
-  if (req.method == "POST") {
-    console.log('post')
-    // testing via get right now
+  console.log(req.connection.remoteAddress)
+
+  var authorizedIP = false
+  for (ip in allowedIPs) {
+    if (allowedIPs[ip] == req.connection.remoteAddress) {
+      authorizedIP = true
+    }
   }
 
-  // change to post...
-  if (req.method == "GET") {
-    var tmpURL = req.url.replace("/?","")
-    var querystring = qs.parse(tmpURL)
+  if (authorizedIP) {
+    if (req.method == "POST") {
+      console.log('post')
+      // testing via get right now
+    }
 
-    if (querystring.word && querystring.category) {
-      var word = pluralize.singular(querystring.word.toLowerCase())
-      var cat = querystring.category.toLowerCase()
+    // change to post...
+    if (req.method == "GET") {
+      var tmpURL = req.url.replace("/?","")
+      var querystring = qs.parse(tmpURL)
 
-      switch (cat[0]) {
-        case "a":
-          func.writeFile("animal", word)
-          console.log("animal")
-          // log to animals file
-          break
-        case "v":
-          func.writeFile("vegetable", word)
-          console.log("vegetable")
-          // log to vegetables file
-          break
-        case "m":
-          func.writeFile("mineral", word)
-          console.log("mineral")
-          // log to minerals file
-          break
+      if (querystring.word && querystring.category) {
+        var word = pluralize.singular(querystring.word.toLowerCase())
+        var cat = querystring.category.toLowerCase()
+
+        switch (cat[0]) {
+          case "a":
+            func.writeFile("animal", word)
+            console.log("animal")
+            // log to animals file
+            break
+          case "v":
+            func.writeFile("vegetable", word)
+            console.log("vegetable")
+            // log to vegetables file
+            break
+          case "m":
+            func.writeFile("mineral", word)
+            console.log("mineral")
+            // log to minerals file
+            break
 
           // discard incorrect categories
+        }
+
+        output = "Trained '" + word + "' in " + cat
       }
-
+    }
+  } else {
+    output = "Unauthorized IP Address"
   }
-}
-  // func.writeFile(result1.category, userInput, dir)
 
-  var output = "Hello world."
   res.end(output);
 });
 
