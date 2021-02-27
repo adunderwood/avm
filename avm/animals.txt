@@ -534,3 +534,11 @@ duck
 
 herd
 herd
+donkey
+dunkey
+mannie
+dog
+cat
+cow
+sheeps
+deers

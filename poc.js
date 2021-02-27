@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
 
       output = avm(wordFromURL)
   }
-  
+
   res.end(output);
 });
 
@@ -56,7 +56,7 @@ function avm(word) {
     // this is 'curated' data for training
     var data = new DataSet()
     data.add('unknown', itemUnknown)
-    data.add('animal', itemAnimals)    
+    data.add('animal', itemAnimals)
     data.add('vegetable', itemVegetables)
     data.add('mineral', itemMinerals)
 
@@ -76,14 +76,14 @@ function avm(word) {
     //userInput = prompt('Animal, Vegetable, or Mineral? ')
     //userInput = pluralize.singular(userInput)
 
-    word = pluralize.singular(word)
+    //word = pluralize.singular(word)
 
     console.log('Ok. Classifying \"' + func.sentenceCase(word) + '\": ')
 
     // test the classifier on a new test item
-    var testDoc = new Document('testDoc', word.toLowerCase())    
+    var testDoc = new Document('testDoc', word.toLowerCase())
     var result1 = classifier.classify(testDoc)
-    
+
     var output = func.sentenceCase(result1.category)
     // report to the user
     console.log(result1)

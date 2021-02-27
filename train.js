@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
       var querystring = qs.parse(tmpURL)
 
       if (querystring.word && querystring.category) {
-        var word = pluralize.singular(querystring.word.toLowerCase())
+        var word = querystring.word.toLowerCase()
         var cat = querystring.category.toLowerCase()
 
         switch (cat[0]) {
