@@ -62,7 +62,7 @@ function avm(word) {
 
     // an optimisation for working with small vocabularies
     var options = {
-        //applyInverse: true
+//        applyInverse: true
     }
 
     // create a classifier
@@ -72,11 +72,6 @@ function avm(word) {
     classifier.train(data)
     //console.log('Classifier trained.')
     //console.log(JSON.stringify(classifier.probabilities, null, 4))
-
-    //userInput = prompt('Animal, Vegetable, or Mineral? ')
-    //userInput = pluralize.singular(userInput)
-
-    //word = pluralize.singular(word)
 
     console.log('Ok. Classifying \"' + func.sentenceCase(word) + '\": ')
 

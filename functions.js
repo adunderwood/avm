@@ -34,7 +34,7 @@ var self = module.exports = {
             var writeToFile = "./" + directory + "/" + file + ".txt"
 
             console.log(word)
-            fs.appendFileSync(writeToFile, "\n" + word.toLowerCase())
+            fs.appendFile(writeToFile, "\n" + word.toLowerCase())
           }
         }
     },
@@ -52,7 +52,7 @@ var self = module.exports = {
                 break
             default:
         }
-    
+
         return file
         //console.log("Corrected file = " + file)
         //self.writeFile(file, data, dir)
