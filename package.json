@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
+    "start": "node tutorial.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/adunderwood/avm/issues"
   },
-  "homepage": "https://github.com/adunderwood/avm#readme"
+  "homepage": "https://github.com/adunderwood/avm#readme",
+  "keywords": []
 }
