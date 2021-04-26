@@ -33,8 +33,11 @@ var self = module.exports = {
             console.log("Writing to training file")
             var writeToFile = "./" + directory + "/" + file + ".txt"
 
-            console.log(word)
-            fs.appendFile(writeToFile, "\n" + word.toLowerCase())
+            console.log("Word: " + word)
+            console.log("File: " + file)
+
+            var writeWord = "\n" + word.toLowerCase()
+            fs.appendFileSync(writeToFile, writeWord)
           }
         }
     },
