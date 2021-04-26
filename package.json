@@ -1,7 +1,7 @@
 {
   "name": "iv",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Animal Vegetable Mineral",
   "main": "poc.js",
   "scripts": {
     "start": "node poc.js"
@@ -16,5 +16,13 @@
     "pluralize": "^8.0.0",
     "prompt-sync": "^4.2.0",
     "querystring": "^0.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adunderwood/avm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adunderwood/avm/issues"
+  },
+  "homepage": "https://github.com/adunderwood/avm#readme"
 }
