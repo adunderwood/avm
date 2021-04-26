@@ -53,7 +53,10 @@ while ((userTraining != "q") && (userTraining != "quit")) {
     console.log('Ok. Classifying \"' + func.sentenceCase(userInput) + '\": ')
 
     // test the classifier on a new test item
-    var testDoc = new Document('testDoc', userInput.toLowerCase())
+    var testThis = []
+    testThis.push(userInput.toLowerCase())
+
+    var testDoc = new Document('testDoc', testThis)
     var result1 = classifier.classify(testDoc)
 
     // report to the user
