@@ -106,18 +106,19 @@ const server = http.createServer((req, res) => {
 
       if (largest < tmp ) {
         lg.category = i
-        lg.total = tmp
+        lg.total = Math.ceil(tmp * 100) /100
 
         largest = tmp
       }
     }
 
     lg.keywords = keys.join(",")
+    lg.categories = avm
     lg.breakdown = collect
 
     output.push(lg)
+    //console.log(collect)
     console.log(output)
-    console.log(collect)
 
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(output))
