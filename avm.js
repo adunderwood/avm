@@ -48,6 +48,9 @@ const server = http.createServer((req, res) => {
   avm["unknown"] = 0
 
   var output = []
+  var collect = []
+  var keys = []
+
   if (req.params.q) {
     console.log("Category requested: " + req.params.q)
 
@@ -57,6 +60,8 @@ const server = http.createServer((req, res) => {
       var aTmp = tmp.split("-")
       var key = aTmp[0]
       var val = parseInt(aTmp[1])
+
+      keys.push(key)
 
       if (val > 0) {
         val = val / 100
@@ -88,21 +93,25 @@ const server = http.createServer((req, res) => {
           break
       }
 
-      //output.push(final)
+      collect.push(final)
     }
 
     var lg = {}
+
     var largest = 0
     for (i in avm) {
       var tmp = avm[i]
 
       if (largest < tmp ) {
         lg.category = i
-        lg.score = tmp
+        lg.total = tmp
 
         largest = tmp
       }
     }
+
+    lg.keywords = keys.join(",")
+    lg.breakdown = collect
 
     console.log(lg)
     output.push(lg)
