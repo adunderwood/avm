@@ -88,7 +88,7 @@ const server = http.createServer((req, res) => {
           break
       }
 
-      output.push(final)
+      //output.push(final)
     }
 
     var lg = {}
@@ -97,7 +97,7 @@ const server = http.createServer((req, res) => {
       var tmp = avm[i]
 
       if (largest < tmp ) {
-        lg.final = i
+        lg.category = i
         lg.score = tmp
 
         largest = tmp
