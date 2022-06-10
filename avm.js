@@ -41,6 +41,12 @@ const server = http.createServer((req, res) => {
   url_params = req.params
   //console.log(req.params)
 
+  var avm = []
+  avm["animals"] = 0
+  avm["vegetables"] = 0
+  avm["minerals"] = 0
+  avm["unknown"] = 0
+
   var output = []
   if (req.params.q) {
     console.log("Category requested: " + req.params.q)
@@ -66,8 +72,40 @@ const server = http.createServer((req, res) => {
       final.category = cl.category
       final.probability = cl.probability
 
+      var tmpCat = final.strength * final.probability
+      switch(final.category) {
+        case "animals":
+          avm["animals"] += tmpCat
+          break
+        case "vegetables":
+          avm["vegetables"] += tmpCat
+          break
+        case "minerals":
+          avm["minerals"] += tmpCat
+          break
+        default:
+          avm["unknown"] += tmpCat
+          break
+      }
+
       output.push(final)
     }
+
+    var lg = {}
+    var largest = 0
+    for (i in avm) {
+      var tmp = avm[i]
+
+      if (largest < tmp ) {
+        lg.category = i
+        lg.total = tmp
+
+        largest = tmp
+      }
+    }
+
+    console.log(lg)
+    output.push(lg)
 
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(output))
