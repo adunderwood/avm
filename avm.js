@@ -61,13 +61,14 @@ const server = http.createServer((req, res) => {
       var key = aTmp[0]
       var val = parseInt(aTmp[1])
 
+      if (key != '') {
       keys.push(key)
 
       if (val > 0) {
         val = val / 100
       }
 
-      console.log(key + ": " + val)
+      //console.log(key + ": " + val)
 
       var cl = classify(key)
 
@@ -95,6 +96,7 @@ const server = http.createServer((req, res) => {
 
       collect.push(final)
     }
+    }
 
     var lg = {}
 
@@ -113,8 +115,9 @@ const server = http.createServer((req, res) => {
     lg.keywords = keys.join(",")
     lg.breakdown = collect
 
-    console.log(lg)
     output.push(lg)
+    console.log(output)
+    console.log(collect)
 
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(output))
@@ -132,18 +135,18 @@ server.listen(port, hostname, () => {
 function classify(which) {
 
     // create some 'good' test items (name, array of characteristics)
+    var itemUnknown = new Document('unknown',[])
     var itemAnimals = new Document('animalsFromFile', animalsFromFile)
     var itemVegetables = new Document('vegetablesFromFile', vegetablesFromFile)
     var itemMinerals = new Document('mineralsFromFile', mineralsFromFile)
-    var itemUnknown = new Document('unknown',[])
 
     // create a DataSet and add test items to appropriate categories
     // this is 'curated' data for training
     var data = new DataSet()
+    data.add('unknown', itemUnknown)
     data.add('animals', itemAnimals)
     data.add('vegetables', itemVegetables)
     data.add('minerals', itemMinerals)
-    data.add('unknown', itemUnknown)
 
     // an optimisation for working with small vocabularies
     var options = {
@@ -159,7 +162,7 @@ function classify(which) {
     //console.log(JSON.stringify(classifier.probabilities, null, 4))
 
     userInput = pluralize.singular(which)
-    console.log('Classifying: \"' + func.sentenceCase(userInput) + '\": ')
+    //console.log('Classifying: \"' + func.sentenceCase(userInput) + '\": ')
 
     // test the classifier on a new test item
     var testThis = []
@@ -170,7 +173,7 @@ function classify(which) {
     result1.q = which
 
     // report to the user
-    console.log(result1)
+    //console.log(result1)
     //console.log(func.sentenceCase(result1.category))
 
     return result1
