@@ -39,7 +39,7 @@ var url_params
 const server = http.createServer((req, res) => {
   req.params=params(req)
   url_params = req.params
-  console.log(req.params)
+  //console.log(req.params)
 
   var output = []
   if (req.params.q) {
@@ -47,8 +47,26 @@ const server = http.createServer((req, res) => {
 
     var aQ = req.params.q.replace("%20","").split(",")
     for (var i = 0; i < aQ.length; i++) {
-      var tmp = classify(aQ[i])
-      output.push(tmp)
+      var tmp = aQ[i]
+      var aTmp = tmp.split("-")
+      var key = aTmp[0]
+      var val = parseInt(aTmp[1])
+
+      if (val > 0) {
+        val = val / 100
+      }
+
+      console.log(key + ": " + val)
+
+      var cl = classify(key)
+
+      var final = {}
+      final.keyword = key
+      final.strength = val
+      final.category = cl.category
+      final.probability = cl.probability
+
+      output.push(final)
     }
 
     res.setHeader('Content-Type', 'application/json')
@@ -94,7 +112,7 @@ function classify(which) {
     //console.log(JSON.stringify(classifier.probabilities, null, 4))
 
     userInput = pluralize.singular(which)
-    console.log('Ok. Classifying \"' + func.sentenceCase(userInput) + '\": ')
+    console.log('Classifying: \"' + func.sentenceCase(userInput) + '\": ')
 
     // test the classifier on a new test item
     var testThis = []
@@ -106,7 +124,7 @@ function classify(which) {
 
     // report to the user
     console.log(result1)
-    console.log(func.sentenceCase(result1.category))
+    //console.log(func.sentenceCase(result1.category))
 
     return result1
 }
