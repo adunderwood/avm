@@ -98,7 +98,7 @@ const server = http.createServer((req, res) => {
 
       if (largest < tmp ) {
         lg.category = i
-        lg.total = tmp
+        lg.score = tmp
 
         largest = tmp
       }
